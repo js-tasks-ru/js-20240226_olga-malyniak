@@ -6,5 +6,5 @@
  * @returns {number}
  */
 export const sum = (m, n) => {
-
+    return parseInt(m) + parseInt(n);
 };
