@@ -5,5 +5,10 @@
  * @returns {object} - returns the new object
  */
 export const omit = (obj, ...fields) => {
-
+    const arrFromObj = Object.entries(obj);
+    for (let field of fields){
+     let key = arrFromObj.findIndex(item => item[0] === field);
+     if (~key) arrFromObj.splice(key, 1);    
+    }
+    return Object.fromEntries(arrFromObj);
 };

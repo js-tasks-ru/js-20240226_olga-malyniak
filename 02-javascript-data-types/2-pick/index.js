@@ -5,5 +5,9 @@
  * @returns {object} - returns the new object
  */
 export const pick = (obj, ...fields) => {
-
+   let result = [];
+   for (let field of fields){
+    Array.prototype.push.apply(result, Object.entries(obj).filter(item => item[0] === field))    
+   }
+   return Object.fromEntries(result); 
 };
