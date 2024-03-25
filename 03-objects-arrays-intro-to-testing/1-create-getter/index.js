@@ -7,7 +7,7 @@ export function createGetter(path) {
     const keys = path.split('.');
     
     return function(obj){
-        for (let key of keys){
+        for (const key of keys){
             if(!obj?.hasOwnProperty(key)) return;
             obj = obj[key];
         }
