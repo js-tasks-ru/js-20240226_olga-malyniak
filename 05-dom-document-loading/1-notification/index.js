@@ -15,14 +15,17 @@ export default class NotificationMessage {
         if (this.type.length) this.classList.push(this.type);
         element.classList.add(...this.classList);
         element.setAttribute('style', '--value:'+this.setFormatTime());
-        element.innerHTML = `
-                        <div class="timer"></div>
-                        <div class="inner-wrapper">
-                            <div class="notification-header">${this.type}</div>
-                            <div class="notification-body">${this.message}</div>
-                        </div>
-                `
+        element.innerHTML = this.createTemplate();
         return element;
+    }
+    createTemplate(){
+        return (`
+            <div class="timer"></div>
+            <div class="inner-wrapper">
+                <div class="notification-header">${this.type}</div>
+                <div class="notification-body">${this.message}</div>
+            </div> 
+        `);
     }
     show(container = document.body){
         if (NotificationMessage.lastInstance) {
